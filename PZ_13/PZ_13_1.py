@@ -3,7 +3,8 @@ from random import randint
 numbers = []
 for i in range(randint(1, 20)):
     numbers.append(randint(-100, 100))
-k = int(input())
+print(numbers)
+k = int(input("Введите число: "))
 is_here = False
 for i in numbers:
     if i == k:
