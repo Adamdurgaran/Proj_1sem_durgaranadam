@@ -1,15 +1,18 @@
-from random import randint
+# Проверить есть ли в последовательности целых N чисел число K
 
-numbers = []
-for i in range(randint(1, 20)):
-    numbers.append(randint(-100, 100))
-print(numbers)
-k = int(input("Введите число: "))
-is_here = False
-for i in numbers:
-    if i == k:
-        is_here = True
-if is_here:
-    print('K есть в последовательности.')
+import random
+
+N = []
+k = 5
+
+print('Данное число:', k)
+
+for i in range(5):
+    N.append(random.randint(1, 10))
+
+print('Начальный список:', N)
+
+if list(filter(lambda k: k == 5, N)):
+    print('В списке есть данное число')
 else:
-    print('K нет в последовательности.')
+    print('В списке нет данного числа')
