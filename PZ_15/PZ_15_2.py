@@ -1,20 +1,21 @@
+# В матрице найти максимальный положительный элемент, кратный 4.
+
 from random import randint
 
-numbers = []
-k = randint(1, 5)
-for i in range(k):
-    numbers.append([])
-for i in range(k):
-    for j in range(k):
-        numbers[i].append(randint(-100, 100))
-maximum = [0, 0]
-for i in range(k):
-    for j in range(len(numbers[i])):
-        if numbers[i][j] % 4 == 0 and numbers[i][j] > 0:
-            if numbers[maximum[0]][maximum[1]] < numbers[i][j]:
-                maximum[0], maximum[1] = i, j
-if maximum == [0, 0] and numbers[maximum[0]][maximum[1]] % 4 > 0:
-    print('В матрице нет элементов, кратных 4.')
-else:
-    print(numbers)
-    print('Элемент ' + str(maximum[0] + 1) + ' ряда ' + str(maximum[1] + 1) + ' столбца — ' + str(numbers[maximum[0]][maximum[1]]) + '.')
+row = int(input('Введите количество строк: '))
+col = int(input('Введите количество столбцов: '))
+
+matrix = [[randint(-100, 100) for j in range(col)] for i in range(row)]
+
+print('Исходная матрица:', matrix)
+
+r = lambda value: value > 0 and value % 4 == 0
+
+max_value = 0
+for n, m in enumerate(matrix):
+    for n1, m1 in enumerate(m):
+        if r(m1):
+            if m1 > max_value:
+                max_value = m1
+
+print('Максимальный положительный элемент, кратный 4:', max_value)
